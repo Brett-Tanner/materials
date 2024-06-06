@@ -1,0 +1,19 @@
+= form_with model: @tutorial, url: tutorials_path(type: 'PDF'), html: { class: 'form', data: { controller: 'fields' }, multipart: true } do |f|
+  = f.hidden_field :type, value: 'PDF'
+
+  = render 'shared/form_errors', resource: @tutorial
+
+  .form-group
+    = f.label :title
+    = f.text_field :title, required: true
+
+  .form-group
+    = f.label :file
+    = f.file_field :file, required: true
+
+  .form-group
+    = f.label :section
+    = f.select :section, options_for_select(sections), {}
+
+  .form-group
+    = f.submit 'Create PDF Tutorial', class: 'btn btn-primary'

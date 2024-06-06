@@ -1,0 +1,11 @@
+- sections = PdfTutorial.sections.keys.map { |key| [key.titleize, key] }
+
+- case @type
+- when 'PDF'
+  = render 'tutorials/forms/pdf_form', tutorial: @tutorial, sections: sections
+- when 'Video'
+  = render 'tutorials/forms/video_form', tutorial: @tutorial, sections: sections
+- when 'FAQ'
+  = render 'tutorials/forms/faq_form', tutorial: @tutorial, sections: sections
+- else
+  %p Invalid tutorial type.
